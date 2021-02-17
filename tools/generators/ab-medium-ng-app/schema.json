@@ -1,0 +1,52 @@
+{
+  "id": "ab-medium-ng-app",
+  "type": "object",
+   "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nombre del proyecto",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Indique el nombre del app:"
+    },
+    "prefix": {
+      "description": "Definición del prefijo para la aplicación.",
+      "type": "string",
+      "default": "ab",
+      "x-prompt": "Indique el prefijo para el app:"
+    },
+    "utils": {
+      "description": "Para saber si quiere un nivel más en las carpetas de utils.",
+      "type": "boolean",
+      "default": "false",
+      "x-prompt": "¿Quiere que las librerias esten dentro de una caperta con el nombre del proyecto?:"
+    },
+    "uiLib": {
+      "description": "Crea una libreria del tipo ui.",
+      "type": "string",
+      "default": "ui",
+      "x-prompt": "Nombre para UiLib:"
+    },
+    "dataLib": {
+      "description": "Crea una libreria del tipo data.",
+      "type": "string",
+      "default": "data",
+      "x-prompt": "Nombre para DataLib:"
+    },
+    "modelLib": {
+      "description": "Crea una libreria del tipo model.",
+      "type": "string",
+      "default": "model",
+      "x-prompt": "Nombre para ModelLib:"
+    },
+    "authLib": {
+      "description": "Crea una libreria del tipo auth.",
+      "type": "string",
+      "default": "auth",
+      "x-prompt": "Nombre para AuthLib:"
+    }
+  },
+  "required": ["name"]
+}

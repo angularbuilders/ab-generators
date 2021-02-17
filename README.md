@@ -88,9 +88,25 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
 
+## Este proyecto permite crear una aplicación con librerias personalizadas.
+Comando para ejecutar el generador `npm run workspace-generator ab-medium-ng-app`   
 
-
-
+- Genera Aplicación NX con prefijo.
+- Genera módulo Core.
+- Genera módulo Shared.
+- Genera componente Shell dentro de Core.
+- Genera servicio llamado API dentro de Core.
+- Genera componente llamado Card dentro de Shared.
+- Genera interceptor llamado **Auth** dentro de *core/api*.
+- Genera un módulo enrutado **Home** con la ruta.
+- Genera un módulo enrutado **About** con la ruta */about.
+- Genera en *Core*: **resolvers(data), guards(member)**.
+- Genera en *Shared*: **pipe(timeAgo), directive(track)**.
+- Cambia en *package.json* **start** `ng serve -o`.
+- Añade en *Angular.json* **schematics** `"@schematics/angular:component": { "change-detection":OnPush"  },}`.
+- Añade dependencia **json-server** en *package.json:DEV*.
+- Genera lib UiLib, DataLib, ModelLib y AuthLib.
+- Añade dependencia *Shared* al módulo : **home**, modulo raiz `app.module.ts`.
 
 ## ☁ Nx Cloud
 
