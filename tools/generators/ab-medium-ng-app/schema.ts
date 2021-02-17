@@ -1,7 +1,7 @@
 export interface SchematicOptions {
     name: string;
-    prefix?: string;
-    utils?: boolean;
+    prefix: string;
+    shared?: boolean;
     uiLib?: string;
     dataLib?: string;
     modelLib?: string;

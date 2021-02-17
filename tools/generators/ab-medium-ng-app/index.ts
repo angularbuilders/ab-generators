@@ -1,4 +1,4 @@
-import { chain, externalSchematic, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { chain, noop, externalSchematic, Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import {
   addImportToModule,
@@ -44,6 +44,7 @@ function generateLib(schema: SchematicOptions, options: OptionsGenerate): Rule {
 /**************************************************** nrwl ****************************************************/ 
 // Generar Aplicación NX (projectName)
 function generateAppNg(schema: SchematicOptions): Rule {
+  
   return externalSchematic('@nrwl/angular', 'app', {
     name: schema.name,
     prefix: schema.prefix,
@@ -57,11 +58,11 @@ function generateAppNg(schema: SchematicOptions): Rule {
 function generateLibraryUi(schema: SchematicOptions): Rule {
   return generateLib(schema, {
     name: schema.uiLib,
-    directory: schema.utils ? `utils/${schema.name}` : 'utils',
+    directory: schema.shared ? `shared/${schema.name}` : 'shared',
     buildable: true,
     enableIvy: true,
     publishable: true,
-    importPath: `@angularbuilders/${schema.uiLib}`,
+    importPath: `@${schema.prefix}/${schema.uiLib}`,
     prefix: `${schema.prefix}-${schema.uiLib}`,
     simpleModuleName: true
   });
@@ -71,11 +72,11 @@ function generateLibraryUi(schema: SchematicOptions): Rule {
 function generateLibraryData(schema: SchematicOptions): Rule {
   return generateLib(schema, {
     name: schema.dataLib,
-    directory: schema.utils ? `utils/${schema.name}` : 'utils',
+    directory: schema.shared ? `shared/${schema.name}` : 'shared',
     buildable: true,
     enableIvy: true,
     publishable: true,
-    importPath: `@angularbuilders/${schema.dataLib}`,
+    importPath: `@${schema.prefix}/${schema.dataLib}`,
     simpleModuleName: true,
     strict: true
   });
@@ -85,9 +86,9 @@ function generateLibraryData(schema: SchematicOptions): Rule {
 function generateLibraryModel(schema: SchematicOptions): Rule {
   return externalSchematic('@nrwl/workspace', 'lib', {
     name: schema.modelLib,
-    directory: schema.utils ? `utils/${schema.name}` : 'utils',
+    directory: schema.shared ? `shared/${schema.name}` : 'shared',
     strict: true,
-    importPath: `@angularbuilders/${schema.modelLib}`,
+    importPath: `@${schema.prefix}/${schema.modelLib}`,
     testEnvironment: 'node'
   });
 }
@@ -95,11 +96,11 @@ function generateLibraryModel(schema: SchematicOptions): Rule {
 function generateLibraryAuth(schema: SchematicOptions): Rule {
   return generateLib(schema, {
     name: schema.authLib,
-    directory: schema.utils ? `utils/${schema.name}` : 'utils',
+    directory: schema.shared ? `shared/${schema.name}` : 'shared',
     buildable: true,
     enableIvy: true,
     publishable: true,
-    importPath: `@angularbuilders/${schema.authLib}`,
+    importPath: `@${schema.prefix}/${schema.authLib}`,
     prefix: `${schema.prefix}-${schema.authLib}`,
     simpleModuleName: true
   });
@@ -109,7 +110,7 @@ function generateLibraryAuth(schema: SchematicOptions): Rule {
 function generateModuleCore(schema: SchematicOptions): Rule {
   return generateModule(schema, {
       project : schema.name,
-      name:  'core',
+      name: 'core',
       routing: true,
       module: 'app',
       routingScope: 'Root'
@@ -120,7 +121,7 @@ function generateModuleCore(schema: SchematicOptions): Rule {
 function generateModuleShared(schema: SchematicOptions): Rule {
   return generateModule(schema, {
       project: schema.name,
-      name:  'shared',
+      name: 'shared',
     });
   }
 
@@ -167,7 +168,7 @@ function generatePipeShared(schema: SchematicOptions): Rule {
     name: 'shared/timeAgo',
     module: 'shared',
     export: true,
-    'skip-tests': true
+    skipTests: true
   });
 }
 
@@ -178,8 +179,8 @@ function generateDirectiveShared(schema: SchematicOptions): Rule {
     name: 'shared/track',
     module: 'shared',
     export: true,
-    'skip-import': true,
-    'skip-tests': true
+    skipImport: true,
+    skipTests: true
   });
 }
 
@@ -187,8 +188,8 @@ function generateDirectiveShared(schema: SchematicOptions): Rule {
 function generateInterceptorAuth(schema: SchematicOptions): Rule {
   return externalSchematic('@schematics/angular', 'interceptor', {
     project: schema.name,
-    name:  'core/api/auth',
-    'skip-tests': true
+    name: 'core/api/auth',
+    skipTests: true
   });
 }
 
@@ -198,7 +199,7 @@ function generateResolversCore(schema: SchematicOptions): Rule {
     project: schema.name,
     name: 'core/api/data',
     import: true,
-    'skip-tests': true
+    skipTests: true
   });
 }
 
@@ -206,9 +207,9 @@ function generateResolversCore(schema: SchematicOptions): Rule {
 function generateGuardCore(schema: SchematicOptions): Rule {
   return externalSchematic('@schematics/angular', 'guard', {
     project: schema.name,
-    name:  'core/guards',
+    name: 'core/guards',
     implements: ['CanActivate'], // si no lo tiene pregunta cual implements se quiere
-    'skip-tests': true
+    skipTests: true
   });
 }
 
@@ -216,7 +217,7 @@ function generateGuardCore(schema: SchematicOptions): Rule {
 function generateModuleHome(schema: SchematicOptions): Rule {
   return generateModule(schema, {
     project: schema.name,
-    name:  'routes/home',
+    name: 'routes/home',
     module: 'core/core.module.ts',
     routing: true,
     route: '/'
@@ -227,7 +228,7 @@ function generateModuleHome(schema: SchematicOptions): Rule {
 function generateModuleAbout(schema: SchematicOptions): Rule {
   return generateModule(schema, {
     project: schema.name,
-    name:  'routes/about',
+    name: 'routes/about',
     module: 'core/core.module.ts',
     routing: true,
     route: 'about'
@@ -291,7 +292,6 @@ function addModuleToImports(schema: SchematicOptions): Rule {
     const moduleName = 'SharedModule';
     addModuleImportToRootModule(tree, moduleName, './shared/shared.module', project as WorkspaceProject<ProjectType.Application>);
     context.logger.log('info', `✅️ "${moduleName}" esta importado`);
-
     return tree;
   };
 }

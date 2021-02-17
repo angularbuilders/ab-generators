@@ -17,8 +17,8 @@
       "default": "ab",
       "x-prompt": "Indique el prefijo para el app:"
     },
-    "utils": {
-      "description": "Para saber si quiere un nivel más en las carpetas de utils.",
+    "shared": {
+      "description": "Para saber si quiere un nivel más en las carpeta de shared.",
       "type": "boolean",
       "default": "false",
       "x-prompt": "¿Quiere que las librerias esten dentro de una caperta con el nombre del proyecto?:"
@@ -48,5 +48,5 @@
       "x-prompt": "Nombre para AuthLib:"
     }
   },
-  "required": ["name"]
+  "required": ["name", "prefix"]
 }
