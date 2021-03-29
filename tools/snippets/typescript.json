@@ -1,0 +1,192 @@
+{
+  "Input Property Angular": {
+    "prefix": "ab-in",
+    "body": [
+      "@Input() ${1:props}: any = {};"
+    ],
+    "description": "Declares a decorated input property"
+  },
+  "Output Property Angular": {
+    "prefix": "ab-out",
+    "body": [
+      "@Output() $1 = new EventEmitter<void>();",
+    ],
+    "description": "Declares an Output event for presentational component"
+  },
+  "Page Property when Observable": {
+    "prefix": "ab-if-as",
+    "body": [
+      "*ngIf=\"${1:observable}$ | async as ${1:property}\" [${1:property}]=\"${1:property}\""
+    ],
+    "description": "Generate attributes to wait for data for presenter property"
+  },
+  "Service Constructor": {
+    "prefix": "ab-srv-data-ctr",
+    "body": [
+      "import { ENVIRONMENT, Environment } from '@ab/global';",
+      "import { HttpClient } from '@angular/common/http';",
+      "import { Inject, Injectable } from '@angular/core';",
+      "import { map } from 'rxjs/operators';",
+      "private readonly ${1:resources}Url = `${this.environment.apiUrl}/${1:resources}`;",
+      "constructor(",
+      "    @Inject(ENVIRONMENT) private readonly environment: Environment,",
+      "    private http: HttpClient",
+      "  ) {}   "
+    ],
+    "description": "Generates the contructor and dependecies for a data service"
+  },
+  "Token": {
+    "prefix": "ab-token",
+    "body": [
+      "import { InjectionToken } from '@angular/core';",
+      "export const ${1:TOKEN_NAME}= new InjectionToken<${1:TokenType}>('${:Description}');"
+    ],
+    "description": "Generate a new custom token to be injectable"
+  },
+  "Map Log": {
+    "prefix": "ab-taplog",
+    "body": [
+      "tap( value => console.log(value) ),"
+    ],
+    "description": "Adds a tap operator and logs de current value"
+  },
+  "Jest Should": {
+    "prefix": "ab-jst-shd",
+    "body": [
+      "describe('$1', () => {",
+      "  let sut;",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    sut = null;",
+      "  });",
+      "  it('should $2', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toBe(expected);",
+      "  });",
+      "});",
+    ],
+    "description": "Scaffold It Should with Jest"
+  },
+  "Jest Given When Then": {
+    "prefix": "ab-jst-gwt",
+    "body": [
+      "describe('GIVEN: $1', () => {",
+      "  let sut;",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    sut = null;",
+      "  });",
+      "  it('WHEN $2 THEN $3', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toBe(expected);",
+      "  });",
+      "});",
+    ],
+    "description": "Scvaffold GWT with Jest"
+  },
+  "Jasmine Given When Then": {
+    "prefix": "ab-jsm-gwt",
+    "body": [
+      "describe('GIVEN: $1', () => {",
+      "  let sut;",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    sut = null;",
+      "  });",
+      "  it('WHEN $2 THEN $3', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+      "});",
+    ],
+    "description": "Esqueleto GWT con Jasmine"
+  },
+  "Jasmine Given When Then Object": {
+    "prefix": "ab-jsm-gwto",
+    "body": [
+      "describe('GIVEN: $1', () => {",
+      "  let sut: $1;",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    sut = new $1();",
+      "  });",
+      "  it('WHEN $2 THEN $3', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+      "});",
+    ],
+    "description": "Esqueleto GWT para un objeto"
+  },
+  "Jasmine It": {
+    "prefix": "ab-jsm-it",
+    "body": [
+      "  it('WHEN $1 THEN $2', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+    ],
+    "description": "Agregar funcion it"
+  },
+  "Jasmine Component View": {
+    "prefix": "ab-jsm-cvw",
+    "body": [
+      "import { DebugElement } from '@angular/core';",
+      "import { ComponentFixture, TestBed } from '@angular/core/testing';",
+      "import { $1Component } from './${1/(.*)/${1:/downcase}/}.component';",
+      "",
+      "describe('GIVEN the $1Component', () => {",
+      "  let component: $1Component;",
+      "  let fixture: ComponentFixture<$1Component>;",
+      "  let debugEl: DebugElement;",
+      "  let nativeEl: HTMLElement;",
+      "",
+      "  beforeEach(async () => {",
+      "    // Arrange",
+      "    await TestBed.configureTestingModule({",
+      "      declarations: [$1Component],",
+      "    }).compileComponents();",
+      "  });",
+      "",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    fixture = TestBed.createComponent($1Component);",
+      "    component = fixture.componentInstance;",
+      "    debugEl = fixture.debugElement;",
+      "    nativeEl = fixture.nativeElement;",
+      "    fixture.detectChanges();",
+      "  });",
+      "",
+      "  it('WHEN $2 THEN $3', () => {",
+      "    // Act",
+      "    const actual = '';$0",
+      "    // Assert",
+      "    const expected = '';",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+      "});"
+    ],
+    "description": "Esqueleto mejorado para tests de compoentes Angular"
+  },
+  "test": {
+    "prefix": "test",
+    // "body": "${1} -> ${1/(.*)/${1:/upcase}/} > ${1/(.*)/${1:/downcase}/}"
+    // simpler version below works too
+    "body": "${1} -> ${1/(.*)/${1:/upcase} ${1:/downcase}/}"
+  }
+}
