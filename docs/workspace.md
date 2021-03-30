@@ -1,22 +1,22 @@
 
-# Workspace
+# 🏢 Workspace
 
-## apps
-## libs
-## tools
+## 💾 apps
+## 📚 libs
+## 🧰 tools
 
 ![Workspace scaffolding](/docs/workspace.png)
 
 ---
 
-# apps
+# 💾 apps
 
-## www
-## www-e2e
+## 💻 www
+## 💻 www-e2e
 
 ---
 
-### www
+### 💻 www
 
 ## app
 ## core
@@ -26,42 +26,42 @@
 
 ---
 
-# libs
+# 📚 libs
 
-## domain
-## shared
+## 📂 domain
+## 📂 shared
 
 ![Libraries scaffolding](/docs/libraries.png)
 
 ---
 
-# domain
+# 📂 domain
 
-## home
-## not-found
-## search
-## search-box
+## 📗 home
+## 📗 not-found
+## 📗 search
+## 📗 search-box
 
 ![library page](/docs/library%20page.png)
 ![library widget](/docs/library%20widget.png)
 
 ---
 
-# shared
+# 📂 shared
 
-## auth
-## data
-## form
-## global
-## layout
-## ui
+## 📘 auth
+## 📘 data
+## 📘 form
+## 📘 global
+## 📘 layout
+## 📘 ui
 
 ![library UI](/docs/library%20ui.png)
 
 
 ---
 
-# ui
+# 📘 ui
 
 ## components
 ## directives

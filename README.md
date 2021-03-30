@@ -58,25 +58,25 @@ Generate the scaffolding for large Angular applications
 
 - a way to run this script on any platform
 
-## Sample generated app
+## Sample working app
 
 [Angular.Builders](https://github.com/angularbuilders/angularbuilders)
 
-# Workspace
-## apps
-### www
-### www-e2e
-## libs
-### domain
-#### home
-#### not-found
-#### search
-#### search-box
-### shared
-#### auth
-#### data
-#### form
-#### global
-#### layout
-#### ui
-## tools
+# 🏢 Workspace
+## 💾 apps
+### 💻 www
+### 💻 www-e2e
+## 📚 libs
+### 📂 domain
+#### 📗 home
+#### 📗 not-found
+#### 📗 search
+#### 📗 search-box
+### 📂 shared
+#### 📘 auth
+#### 📘 data
+#### 📘 form
+#### 📘 global
+#### 📘 layout
+#### 📘 ui
+## 🧰 tools
