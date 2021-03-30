@@ -5,7 +5,7 @@
 ## libs
 ## tools
 
-![Workspace scaffolding]('/docs/workspace.png)
+![Workspace scaffolding](docs/workspace.png)
 
 ---
 
