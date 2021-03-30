@@ -1,15 +1,26 @@
+
 # Workspace
 
 ## apps
 ## libs
 ## tools
 
+![Workspace scaffolding]('docs/workspace.png)
+
 ---
 
 # apps
 
 ## www
-### www-e2e
+## www-e2e
+
+---
+
+### www
+
+## app
+## core
+## core-routing
 
 ---
 
