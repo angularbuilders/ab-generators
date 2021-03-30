@@ -12,26 +12,6 @@ Generate the scaffolding for large Angular applications
 
 ![Workspace scaffolding](/docs/workspace.png)
 
-# Workspace
-
-## apps
-### www
-### www-e2e
-## libs
-### domain
-#### home
-#### not-found
-#### search
-#### search-box
-### shared
-#### auth
-#### data
-#### form
-#### global
-#### layout
-#### ui
-## tools
-
 
 ### 🧰 Tools
 
@@ -81,3 +61,22 @@ Generate the scaffolding for large Angular applications
 ## Sample generated app
 
 [Angular.Builders](https://github.com/angularbuilders/angularbuilders)
+
+# Workspace
+## apps
+### www
+### www-e2e
+## libs
+### domain
+#### home
+#### not-found
+#### search
+#### search-box
+### shared
+#### auth
+#### data
+#### form
+#### global
+#### layout
+#### ui
+## tools
