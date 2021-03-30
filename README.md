@@ -8,7 +8,9 @@ Scripts, schematics and generators to build Angular apps with Narwhal Nx dev too
 
 Generate the scaffolding for large Angular applications
 
-See the [proposed workspace structure](./docs/workspace.md)
+> See the [proposed workspace structure](./docs/workspace.md)
+
+![Workspace scaffolding](/docs/workspace.png)
 
 ### 🧰 Tools
 
