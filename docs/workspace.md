@@ -38,11 +38,11 @@
 # domain
 
 ## home
-![library page](/docs/library%20page.png)
-
 ## not-found
 ## search
 ## search-box
+
+![library page](/docs/library%20page.png)
 ![library widget](/docs/library%20widget.png)
 
 ---
