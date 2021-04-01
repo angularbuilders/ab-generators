@@ -15,4 +15,9 @@ json -I -f angular.json -e "this.projects.web.architect.build.options.styles[1] 
 echo "this.projects.web.architect.build.options.styles[1] = 'node_modules/bulma/css/bulma.css';"
 git add *
 git commit -m 'chore: add bulma'
+echo "nx migrate latest"
+nx migrate latest
+npm install --legacy-peer-deps
+git add *
+git commit -m 'chore: nx migrate latest'
 echo "🏠 add capabilities";

@@ -44,10 +44,10 @@ echo " this.schematics['@nrwl/angular:service'] ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'].flat = true;"
-echo " this.schematics[@schematics/angular:service'] ";
-json -I -f angular.json -e "this.schematics[@schematics/angular:service'] = {};"
-json -I -f angular.json -e "this.schematics[@schematics/angular:service'].skipTests = true;"
-json -I -f angular.json -e "this.schematics[@schematics/angular:service'].flat = true;"
+echo " this.schematics['@schematics/angular:service'] ";
+json -I -f angular.json -e "this.schematics['@schematics/angular:service'] = {};"
+json -I -f angular.json -e "this.schematics['@schematics/angular:service'].skipTests = true;"
+json -I -f angular.json -e "this.schematics['@schematics/angular:service'].flat = true;"
 echo " this.schematics['@nrwl/angular:interceptor'] ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:interceptor'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:interceptor'].skipTests = true;"
