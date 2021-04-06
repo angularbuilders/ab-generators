@@ -1,7 +1,7 @@
-echo "🚧 configure ";
+echo "🚧 configure schematic generators ";
 echo " schematics at angular.json for nx and default ng";
 json -I -f angular.json -e "this.schematics['@nrwl/angular'] ={};"
-echo " this.schematics['@nrwl/angular:application'] ";
+echo " application ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].e2eTestRunner = 'cypress';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].enableIvy = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].inlineStyle = true;"
@@ -14,7 +14,7 @@ json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].strict 
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].style = 'css';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].tags = 'app';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:application'].unitTestRunner = 'jest';"
-echo " this.schematics['@nrwl/angular:library'] ";
+echo " library ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].buildable = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].directory = 'domain';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].enableIvy = true;"
@@ -28,65 +28,52 @@ json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].strict = tr
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].style = 'css';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].tags = 'lib';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:library'].unitTestRunner = 'jest';"
-echo " this.schematics['@nrwl/angular:component'] ";
+echo " component ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:component'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:component'].changeDetection = 'OnPush';"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:component'].inlineStyle = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:component'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:component'].style = 'css';"
-echo " this.schematics['@schematics/angular:component'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:component'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:component'].changeDetection = 'OnPush';"
 json -I -f angular.json -e "this.schematics['@schematics/angular:component'].inlineStyle = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:component'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:component'].style = 'css';"
-echo " this.schematics['@nrwl/angular:service'] ";
+echo " service ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:service'].flat = true;"
-echo " this.schematics['@schematics/angular:service'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:service'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:service'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:service'].flat = true;"
-echo " this.schematics['@nrwl/angular:interceptor'] ";
+echo " interceptor ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:interceptor'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:interceptor'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:interceptor'].flat = true;"
-echo " this.schematics['@schematics/angular:interceptor'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:interceptor'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:interceptor'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:interceptor'].flat = true;"
-echo " this.schematics['@nrwl/angular:guard'] ";
+echo " guard ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:guard'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:guard'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:guard'].flat = true;"
-echo " this.schematics['@schematics/angular:guard'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:guard'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:guard'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:guard'].flat = true;"
-echo " this.schematics['@nrwl/angular:directive'] ";
+echo " directive ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:directive'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:directive'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:directive'].flat = true;"
-echo " this.schematics['@schematics/angular:directive'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:directive'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:directive'].skipTests = true;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:directive'].flat = true;"
-echo " this.schematics['@nrwl/angular:pipe'] ";
+echo " pipe ";
 json -I -f angular.json -e "this.schematics['@nrwl/angular:pipe'] = {};"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:pipe'].skipTests = false;"
 json -I -f angular.json -e "this.schematics['@nrwl/angular:pipe'].flat = true;"
-echo " this.schematics['@nrwl/angular:pipe'] ";
 json -I -f angular.json -e "this.schematics['@schematics/angular:pipe'] = {};"
 json -I -f angular.json -e "this.schematics['@schematics/angular:pipe'].skipTests = false;"
 json -I -f angular.json -e "this.schematics['@schematics/angular:pipe'].flat = true;"
 git add *
 git commit -m 'chore: schematics at angular.json for nx and default ng'
-echo " configure .eslintrc.json ";
-json -I -f .eslintrc.json -e "this.overrides[0].rules['@angular-eslint/component-class-suffix'] = ['error',{'suffixes': ['Component','Form','Page','Template','Widget']}];"
-json -I -f .eslintrc.json -e "this.overrides[1].rules['@typescript-eslint/no-empty-function'] = ['off'];"
-# ToDo : add this rule to every lib
-json -I -f .eslintrc.json -e "this.overrides[1].rules['@angular-eslint/no-empty-lifecycle-method'] = ['off'];"
-git add *
-git commit -m 'chore: configure .eslintrc.json'
-echo "🏠 configure ";
+echo "🏠 configure schematic generators";
