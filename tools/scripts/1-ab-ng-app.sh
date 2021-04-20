@@ -1,4 +1,4 @@
-# cd ORGANIZATION
+# inside  ORGANIZATION folder
 git branch -M main
 git remote add origin https://github.com/ORGANIZATION/REPOSITORY.git
 git add *
